@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  bitbucketwebhookfilter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ALLOWED_BRANCHES=master,develop
+      - WEBHOOK_TARGET_URL=http://www.example.org
+    ports:
+    - "3000:3000"
